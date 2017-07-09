@@ -7,6 +7,7 @@
 - Confidencialidade
 - Integridade
 - Disponibilidade
+
 ## Princípios  
 - Segurança em múltiplas camadas
 - Considere que cada camada eventualmente falhará
