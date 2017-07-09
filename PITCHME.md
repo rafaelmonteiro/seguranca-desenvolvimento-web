@@ -1,5 +1,6 @@
 #HSLIDE
 # Segurança no desenvolvimento web
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Ubuntu+Mono">
 #HSLIDE
 ## Pilares da Segurança da Informação  
 - Confidencialidade
@@ -97,8 +98,8 @@ Atacante cria página e, através de requisições para o site alvo (usualmente 
 `header(‘X-FRAME-OPTIONS’, ‘DENY’); //ou SAMEORIGIN`
 #HSLIDE
 ## Ferramentas
-[Arachni web scanner](http://www.arachni-scanner.com/)
-[Dependencies security checker](https://github.com/sensiolabs/security-checker)
+- [Arachni web scanner](http://www.arachni-scanner.com/)
+- [Dependencies security checker](https://github.com/sensiolabs/security-checker)
 #HSLIDE
 ## Referências
 [OWASP](https://www.owasp.org)
