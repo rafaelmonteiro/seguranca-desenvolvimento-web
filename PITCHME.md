@@ -19,7 +19,9 @@ Considerando que a requisição HTTP pode ser manipulada pelo cliente, toda entr
 Além disso, a maioria dos frameworks de mercado implementam algum tipo de tratamento/sanitização de dados.
 - PHP 7+ oferece ***type declarations*** que permitem especificar o tipo esperado de parâmetros.
 Para isso:
-`declare(strict_types=1);`
+```php
+declare(strict_types=1);
+```
 #HSLIDE
 ## Cross-site scripting (XSS)
 Ocorre quando um script inserido por um usuário é armazenado e/ou executado pela aplicação. 
@@ -47,7 +49,7 @@ Ocorre quando um script inserido por um usuário é armazenado e/ou executado pe
 - [*Same-origin Policy*](https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy) faz com que apenas códigos do mesmo *origin* (protocolo/domínio/porta) tenham acesso à aplicação, ao mesmo tempo que permite acesso a arquivos externos (uma lib como o [JQuery](https://jquery.com/), por exemplo)
 - Filtrar entradas ([*strip_tags*](http://php.net/manual/en/function.strip-tags.php), [*filter_var*](http://php.net/manual/en/function.filter-var.php), [*preg_replace*](http://php.net/manual/en/function.preg-replace.php))
 - Escapar as saídas ([*htmlspecialchars*](http://php.net/manual/en/function.htmlspecialchars.php), [*htmlentities*](http://php.net/manual/en/function.htmlentities.php), [*filter_var*](http://php.net/manual/en/function.filter-var.php))
-- Aplicar [*Content Security Policy*](https://content-security-policy.com/) (*default-src*, *img-src*, *script-src*), para isso, o ideal é eliminar código inline
+- Aplicar [*Content Security Policy*](https://content-security-policy.com/) (*default-src*, *img-src*, *script-src*) -> eliminar código inline
 #HSLIDE
 ### Testando a CSP
 ```
@@ -85,17 +87,20 @@ Strict-Transport-Security: max-age=86400; includeSubDomains
 ```
 #HSLIDE
 ## Cross-site Request Forgery (CSRF)
-Causado por vírus, scam/phishing, site/redirecionamento malicioso
+- Causado por vírus, scam/phishing, site/redirecionamento malicioso
 
 ### Proteção
 - Não usar GET para operações que envolvam manipulação de dados (porém, o POST também pode ser manipulado)
 - Enviar token 
 #HSLIDE
 ### Clickjacking
-Atacante cria página e, através de requisições para o site alvo (usualmente via iframe), aproveita-se da sessão do usuário
+- Atacante cria página e, através de requisições para o site alvo (usualmente via iframe), aproveita-se da sessão do usuário
 
 #### Proteção
-`header(‘X-FRAME-OPTIONS’, ‘DENY’); //ou SAMEORIGIN`
+```php
+header(‘X-FRAME-OPTIONS’, ‘DENY’); //ou SAMEORIGIN
+```
+
 #HSLIDE
 ## Ferramentas
 - [Arachni web scanner](http://www.arachni-scanner.com/)
